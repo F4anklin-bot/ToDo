@@ -10,13 +10,20 @@ function handleInputChange(event){
 }
 
 function addTask(){
-
+    if (newTasks.trim()!==""){
+        setTasks(t => [...t, newTasks])
+        setNewTasks("")
+    }
 }
 function deleteTask(index){
-    setTasks(tasks.filter((element, i) => i !==index))
+    setTasks(tasks.filter((element, i) => i !==index));
 }
 function moveTaskUp(index){
-
+    if (index<0) {
+        const updateTasks = [...tasks];
+        [updateTasks[index], updateTasks[index - 1]] = [updateTasks[index - 1], updateTasks[index]]
+        setTasks(updateTasks)
+    }
 }
 function moveTaskDown(index){
 
