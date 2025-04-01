@@ -2,7 +2,7 @@ import React, {useState} from "react"
 
 export default function TodoList(){
 
-const [tasks, setTasks] = useState(["Faire du sport", "Se reposer pour guerir", "reviser ses leçons"])
+const [tasks, setTasks] = useState([])
 const  [newTasks, setNewTasks] = useState("")
 
 function handleInputChange(event){
@@ -34,19 +34,19 @@ function moveTaskDown(index){
 }
 
     return(
-        <div className="text-center">
-            <h1 className="text-6xl text-bold my-3">Liste des tâches</h1>
-            <div >
+        <div className="text-center flex flex-col justify-center items-center">
+            <h1 className="text-6xl text-bold mb-3">Liste des tâches</h1>
+            <div className="h-[50px] flex border-1 border-violet-200 rounded-xl overflow-auto">
                 <input 
                 type="text"
-                className=""
+                className="m-3"
                 value={newTasks}
                 onChange={handleInputChange}
                 placeholder="Entrer une nouvelle tâche..."
                 />
 
                 <button
-                className="bg-green-500 hover:bg-green-400"
+                className="bg-green-500 p-1.5 hover:bg-green-400"
                 onClick={addTask}>
                     Ajouter
                 </button>
@@ -54,19 +54,21 @@ function moveTaskDown(index){
 
         <ol className="list-decimal">
             {tasks.map((task, index) => 
-            <li key={index}>
+            <li key={index} className="m-2 border-1 flex p-2 min-w-[300px] border-white rounded-xl items-center">
                 <span className="">{task}</span>
-                <button className="bg-red-500 hover:bg-red-600"
+                <div className="ml-auto mr-0 right-0">
+                <button className="bg-red-500 hover:bg-red-600 rounded-xl p-1 mx-1"
                     onClick={() => deleteTask(index)}
                     >Delete</button>
 
-                <button className=""
+                <button className="mx-1 bg-blue-400 hover:bg-blue-500"
                     onClick={() => moveTaskUp(index)}
                     >⬆</button>
                     
-                <button className=""
+                <button className="mx-1 bg-blue-400 hover:bg-blue-500"
                     onClick={() => moveTaskDown(index)}
                     >⬇</button>
+                </div>
             </li>
             )}
         </ol>
