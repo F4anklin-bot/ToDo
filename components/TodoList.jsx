@@ -54,7 +54,7 @@ function moveTaskDown(index){
 
         <ol className="list-decimal">
             {tasks.map((task, index) => 
-            <li key={index} className="m-2 border-1 flex p-2 min-w-[300px] border-white rounded-xl items-center">
+            <li key={index} className="transition bg-black text-white duration-500 ease-in m-2 border-1 flex p-2 min-w-[300px] border-white rounded-xl items-center">
                 <span className="">{task}</span>
                 <div className="ml-auto mr-0 right-0">
                 <button className="bg-red-500 hover:bg-red-600 rounded-xl p-1 mx-1"
