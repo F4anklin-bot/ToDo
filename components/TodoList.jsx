@@ -13,6 +13,8 @@ function addTask(){
     if (newTasks.trim()!==""){
         setTasks(t => [...t, newTasks])
         setNewTasks("")
+    } else {
+        alert("Vous ne pouvez pas entrer une chaine de caractère vide")
     }
 }
 function deleteTask(index){
@@ -34,9 +36,9 @@ function moveTaskDown(index){
 }
 
     return(
-        <div className="text-center flex flex-col justify-center items-center">
+        <div className="text-center flex flex-col justify-center items-center transition duration-500 delay-200 ease-in-out">
             <h1 className="text-6xl text-bold mb-3">Liste des tâches</h1>
-            <div className="h-[50px] flex border-1 border-violet-200 rounded-xl overflow-auto">
+            <div className="h-[50px] my-5 flex border-1 border-violet-200 rounded-xl overflow-auto">
                 <input 
                 type="text"
                 className="m-3"
