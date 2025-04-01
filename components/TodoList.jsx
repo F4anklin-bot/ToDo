@@ -26,7 +26,11 @@ function moveTaskUp(index){
     }
 }
 function moveTaskDown(index){
-
+    if (index < tasks.length - 1) {
+        const updateTasks = [...tasks];
+        [updateTasks[index], updateTasks[index + 1]] = [updateTasks[index + 1], updateTasks[index]]
+        setTasks(updateTasks)
+    }
 }
 
     return(
