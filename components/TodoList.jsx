@@ -19,7 +19,7 @@ function deleteTask(index){
     setTasks(tasks.filter((element, i) => i !==index));
 }
 function moveTaskUp(index){
-    if (index<0) {
+    if (index>0) {
         const updateTasks = [...tasks];
         [updateTasks[index], updateTasks[index - 1]] = [updateTasks[index - 1], updateTasks[index]]
         setTasks(updateTasks)
